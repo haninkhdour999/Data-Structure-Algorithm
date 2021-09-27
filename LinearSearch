@@ -1,0 +1,32 @@
+public class Main
+{
+	public static void main(String[] args) {
+		int mkey=10;
+		int []arr={1,9,10,17,44,100};
+		LinearSearchDS(arr, mkey);
+	}
+	
+	public static int LinearSearchDS(int []arr,int mkey)
+	{
+	   
+	  
+	   for(int i=0;i<=arr.length-1;i++)
+	    
+	    {
+	         
+	        if(arr[i]!=mkey)
+	        {
+	            System.out.println("the target key is not exsist in the array:"+arr[i]+"target key is:"+mkey);
+	      
+	           
+	        }
+	             
+	        else if(arr[i]==mkey)
+	        {
+	             System.out.println("the target key is  exsist in the array:"+arr[i]+"target key is:"+mkey);
+	           
+	        }
+	    }
+	    return 0;
+	}
+}
