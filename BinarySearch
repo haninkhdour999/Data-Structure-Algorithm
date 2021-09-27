@@ -1,0 +1,45 @@
+public class Main
+{
+	public static void main(String[] args) {
+		System.out.println("Hello World");
+		int mkey=10;
+		int [] arr={1,5,15,17,19,100,780};
+		
+		BinarySearchDS(arr, mkey);
+	}
+	
+	public static int BinarySearchDS(int []arr,int mkey){
+	    
+	    int lowArr=0;
+	    int highArr=arr.length-1;
+	    while(lowArr<highArr)
+	    {
+	        int mid=(lowArr+highArr)>>>1;
+	        
+	        if (arr[mid]<mkey)
+	        {
+	            System.out.println("the key is less than the mid of the array:"+arr[mid]+"the target is:"+mkey);
+	            lowArr=mid+1;
+	           
+	            
+	        }
+	         else if(arr[mid]>mkey)
+	        {
+	              System.out.println("the key is big  than the mid of the array"+arr[mid]+"the target is:"+mkey);
+	            highArr=mid-1;
+	        }
+	        else if(arr[mid]==mkey)
+	        {
+	            System.out.println("the key is equal the mid of the array"+mid);
+	            
+	        }
+	        
+	        
+	        
+	           
+	        
+	    }
+	    
+	     return 0;
+	}
+}
