@@ -1,0 +1,43 @@
+public class Main
+{
+	public static void main(String[] args) {
+	 int arr[] = {1, 2, 3, 4, 5, 6, 17,18, 21, 34, 45, 99, 122, 133, 500, 700};
+        int mkey = 122;
+
+       // Find the index of searched item
+       int index_result = JumpSearchDS(arr, mkey);
+   
+       System.out.println(mkey + " is found at index " + index_result);
+
+	}
+	
+	public static int JumpSearchDS(int []arr,int mkey)
+	{
+	    int arrSize=arr.length;
+	    
+	    int blockSize=(int)Math.floor(Math.sqrt(arrSize));
+	    
+	    //Now we search if the element is exisist we will find which   the block exsist
+	    int prev_mkey=0;
+	     while (arr[Math.min(blockSize,arrSize)-1] < mkey)
+	    {
+	        prev_mkey=blockSize;
+	        blockSize += (int)Math.floor(Math.sqrt(arrSize));
+	            if ( prev_mkey >= arrSize)
+	                return -1;
+	    }
+	    
+	    while(arr[prev_mkey]<mkey)
+	    {
+	         prev_mkey++;
+	            if (prev_mkey == Math.min( blockSize, arrSize))
+	                return -1;
+	    }
+	    
+	    // If element is found
+	        if (arr[prev_mkey] == mkey)
+	            return prev_mkey;
+	 
+	        return -1;
+	}
+}
