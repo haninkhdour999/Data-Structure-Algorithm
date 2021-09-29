@@ -1,0 +1,41 @@
+public class Main
+{
+	public static void main(String[] args) {
+	
+	 int arr[][] = {{12, 20, 30, 40}, 
+                  {15, 25, 35, 45}, 
+                  {24, 29, 39, 51}, 
+                  {35, 30, 39, 50}, 
+                  {50, 60, 75, 72}}; 
+			   
+	 int arrRow = 5;    
+	 int mkey = 39;		   
+     int result[] = DimensionalArraySearchDS(arr, arrRow - 1, 0, mkey);
+        System.out.println("Position of "+mkey+" in the matrix is ("+result[0] + "," + result[1]+")");			   
+	
+	}
+	
+	public static int []DimensionalArraySearchDS(int [][]arr,int arrRow,int arrColumn,int mkey)
+	{
+	    int []element_position={-1,-1};
+	    if(arrRow<0 || arrColumn>=arr[arrRow].length)
+	    {
+	        return element_position;
+	    }
+	    if(arr[arrRow][arrColumn]==mkey)
+	    {
+	        element_position[0]=arrRow;
+	        element_position[1]=arrColumn;
+	        return element_position;
+	    }
+	    
+	    else if(arr[arrRow][arrColumn]>mkey)
+	    {
+	        return  DimensionalArraySearchDS(arr, arrRow-1, arrColumn, mkey);
+	    }
+	    
+	    return  DimensionalArraySearchDS(arr, arrRow, arrColumn+1, mkey);
+	    
+	}
+	
+}
