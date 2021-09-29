@@ -1,0 +1,33 @@
+import java.util.Arrays;
+public class Main
+{
+	public static void main(String[] args) {
+	    int arr[] = {1, 2, 3, 4, 5, 6, 7, 8, 21, 34, 45, 91, 120, 130, 456, 564};
+        int mkey = 120;
+        
+         int index_result =  ExponentialSearchDS(arr, mkey);
+
+       System.out.println(mkey + " is found at index " + index_result);		
+	
+	}
+	
+	
+	public static int ExponentialSearchDS(int []arr,int mkey)
+	{
+	    int startNum=0;
+	    
+	    if(arr[startNum]==mkey)
+	    {
+	        return startNum;
+	        
+	    }
+	    startNum=1;
+	    while(startNum<arr.length && arr[startNum]<=mkey)
+	    {
+	        startNum*=2;
+	    }
+	 
+	    return Arrays.binarySearch(arr,startNum/2,Math.min(startNum,arr.length),mkey);
+	}
+	
+}
