@@ -1,0 +1,48 @@
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	     Scanner scanner = new Scanner(System.in);
+        int[] arr = new int[]{0,1,2,3,5,7,9,12,15,17,18,21,25,32,52,54,75,89,90,93,97,104,120};
+		System.out.println("Original array:");
+		System.out.println(Arrays.toString(arr));
+        System.out.println("Input an element to search:");
+        int mkey = scanner.nextInt();
+        int position = TernarySearchDS(arr, mkey, 0, arr.length-1);
+        if(position == -1)
+            System.out.println("\n" +mkey+ " Element not found");
+        else
+            System.out.println("\n"+ mkey +" element found at position "+ position);
+		
+	}
+	
+	public static int TernarySearchDS(int []arr,int mkey,int firstElement,int lastElement)
+	{
+	    if(firstElement>lastElement)
+	    {
+	        return -1;
+	    }
+	    
+	    int mid_first=firstElement+(lastElement-firstElement)/3;
+	    int mid_last=firstElement+2*(lastElement-firstElement)/3;
+	    
+	    if(mkey==arr[mid_first])
+	    {
+	        return mid_first;
+	    }
+	    else if(mkey==arr[mid_last])
+	    {
+	        return mid_last;
+	    }
+	     else if(mkey>arr[mid_first])
+	    {
+	        firstElement=mid_first+1;
+	    }
+	     else if(mkey<arr[mid_last])
+	    {
+	        lastElement=mid_last-1;
+	    }
+	    
+	    return TernarySearchDS(arr,mkey,firstElement,lastElement);
+	}
+}
